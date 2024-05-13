@@ -8,6 +8,7 @@ import {
 import { useAuth } from "@/hooks/useAuth"
 import toast from "react-hot-toast"
 import { useState } from "react"
+import LoadingSpinner from "./LoadingSpinner"
 
 interface AlbumModalProps {
   album: AlbumModel
@@ -88,10 +89,14 @@ export default function AlbumModal({ album, modalTrigger }: AlbumModalProps) {
             </div>
           </div>
           <button
-            className="align-end bg-[var(--buy-album-color)] flex justify-center items-center py-3 w-full text-white font-inter font-medium text-xl rounded-md hover:bg-[var(--sysmap-light-hover)] transition-all"
+            className={`align-end ${
+              loading ? "bg-white" : "bg-[var(--buy-album-color)]"
+            } flex justify-center items-center py-3 w-full text-white font-inter font-medium text-xl rounded-md ${
+              !loading && "hover:bg-[var(--sysmap-light-hover)]"
+            } transition-all`}
             onClick={() => handleBuyAlbum()}
           >
-            {loading ? "Carregando..." : "Comprar"}
+            {loading ? <LoadingSpinner /> : "Comprar"}
           </button>
         </div>
       </DialogContent>

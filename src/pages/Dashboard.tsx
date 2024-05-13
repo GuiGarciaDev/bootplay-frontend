@@ -7,6 +7,7 @@ import toast from "react-hot-toast"
 import AlbumCard from "@/components/AlbumCard"
 import AlbumModal from "@/components/AlbumModal"
 import Carousel from "@/components/Carousel/Carousel"
+import LoadingSpinner from "@/components/LoadingSpinner"
 
 export default function Dashboard() {
   const [text, setText] = useState("")
@@ -14,6 +15,7 @@ export default function Dashboard() {
   const [trends, setTrends] = useState<AlbumModel[]>([])
   const [toggleTrends, setToggletrends] = useState(true)
   const [loading, setLoading] = useState(false)
+  const [trendsLoading, setTrendsLoading] = useState(false)
 
   const { getAlbumsByText } = useAuth()
 
@@ -25,6 +27,7 @@ export default function Dashboard() {
   }, [])
 
   async function getTrends() {
+    setTrendsLoading(true)
     await getAlbumsByText("rock")
       .then((res) => {
         if (typeof res === "string") {
@@ -36,6 +39,8 @@ export default function Dashboard() {
       .catch(() => {
         toast.error("Erro ao carregar albums em alta.")
       })
+
+    setTrendsLoading(false)
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -71,7 +76,7 @@ export default function Dashboard() {
       <div className="flex w-screen 2xl:w-[1536px] overflow-auto">
         <Header type="dashboard" />
         <div className="flex flex-col flex-grow bg-[var(--dashboard-background)]">
-          <div className="flex w-full h-full max-h-[400px] bg-dashboard_bg bg-cover bg-center bg-no-repeat relative">
+          <div className="flex w-full min-h-[340px] bg-dashboard_bg bg-cover bg-center bg-no-repeat relative">
             <div className="flex flex-col justify-center flex-grow px-[28px] gap-5 backdrop-brightness-50 text-white">
               <h1 className="font-semibold text-2xl md:text-4xl md:max-w-[480px] mt-20">
                 A história da música não pode ser esquecida!
@@ -104,63 +109,50 @@ export default function Dashboard() {
 
             <div className="flex flex-col w-full mt-3">
               {toggleTrends ? (
-                <>
+                <div className="flex flex-col">
                   <h2 className="font-semibold text-3xl text-white ml-10 md:ml-[100px]">
                     Em alta
                   </h2>
-                  <Carousel className="mt-3">
-                    {trends.map((album, idx) => {
-                      return (
-                        <AlbumModal
-                          key={idx}
-                          album={album}
-                          modalTrigger={
-                            <AlbumCard
-                              imageUrl={album.images[0].url}
-                              name={album.name}
-                              value={album.value}
-                            />
-                          }
-                        />
-                      )
-                    })}
-                    {trends.map((album, idx) => {
-                      return (
-                        <AlbumModal
-                          key={idx}
-                          album={album}
-                          modalTrigger={
-                            <AlbumCard
-                              imageUrl={album.images[0].url}
-                              name={album.name}
-                              value={album.value}
-                              key={idx}
-                            />
-                          }
-                        />
-                      )
-                    })}
-                  </Carousel>
-
-                  {/* <div className="flex flex-wrap w-full h-40 text-white mt-3">
-                    {trends.map((album, idx) => {
-                      return (
-                        <AlbumModal
-                          key={idx}
-                          album={album}
-                          modalTrigger={
-                            <AlbumCard
-                              imageUrl={album.images[0].url}
-                              name={album.name}
-                              value={album.value}
-                              key={idx}
-                            />
-                          }
-                        />
-                      )
-                    })}
-                  </div> */}
-                </>
+                  {trendsLoading ? (
+                    <div className="flex justify-center mt-4">
+                      <LoadingSpinner />
+                    </div>
+                  ) : (
+                    <Carousel className="mt-3">
+                      {trends.map((album, idx) => {
+                        return (
+                          <AlbumModal
+                            key={idx}
+                            album={album}
+                            modalTrigger={
+                              <AlbumCard
+                                imageUrl={album.images[0].url}
+                                name={album.name}
+                                value={album.value}
+                              />
+                            }
+                          />
+                        )
+                      })}
+                      {trends.map((album, idx) => {
+                        return (
+                          <AlbumModal
+                            key={idx}
+                            album={album}
+                            modalTrigger={
+                              <AlbumCard
+                                imageUrl={album.images[0].url}
+                                name={album.name}
+                                value={album.value}
+                                key={idx}
+                              />
+                            }
+                          />
+                        )
+                      })}
+                    </Carousel>
+                  )}
+                </div>
               ) : (
                 <div className="flex flex-wrap w-full text-white h-40 justify-center gap-5">
                   {!loading ? (
@@ -181,7 +173,9 @@ export default function Dashboard() {
                       )
                     })
                   ) : (
-                    <span>Carregando...</span>
+                    <div className="flex mt-6">
+                      <LoadingSpinner />
+                    </div>
                   )}
                 </div>
               )}

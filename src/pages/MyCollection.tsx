@@ -9,6 +9,7 @@ import albumValueSvg from "../assets/album-value.svg"
 import leftArrowSvg from "../assets/left-arrow.svg"
 import { Link } from "react-router-dom"
 import { MyAlbumModel } from "@/types/AlbumApi"
+import LoadingSpinner from "@/components/LoadingSpinner"
 
 export default function MyCollection() {
   const [myAlbums, setMyAlbums] = useState<MyAlbumModel[]>([])
@@ -94,7 +95,7 @@ export default function MyCollection() {
                     )
                   })
                 ) : (
-                  <span>Carregando...</span>
+                  <LoadingSpinner />
                 )}
               </div>
             </div>

@@ -14,7 +14,7 @@ import PrivateRoute from "./components/PrivateRoute"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.Fragment>
-    <Toaster position="top-right" toastOptions={{ duration: 5000 }} />
+    <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
     <AuthProvider>
       <BrowserRouter>
         <Routes>
