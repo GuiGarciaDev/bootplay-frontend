@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+TODO:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[] Add form validation to login page
+[] Add form validation to signup page
+[x] Add ReactRouter to this project
+[x] Create header component
+[x] Create bootplay dashboard page
+[x] Use docker-compose.yml of Andryev
+[x] Create AuthContext
+[x] Create login/register flow
+[x] Create logout function
+[x] Protect dashboard page from unauthorized users
+[x] Render trend albums
+[x] Render my collection
+[x] Create carousel component to render trends
+[x] Fix carousel slider after and before in lower screen
+[x] Create buy album logic
+[x] Create delete albums from my collection logic
+[x] Add icons in header dropdown buttons
+[x] Style global scrollbar
+[] Add line clamp for elements
+[] Add balance
+[] See current user balance
 
-Currently, two official plugins are available:
+- Responsiveness:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+[x] Landing
+[x] Login
+[x] Signup
+[x] Dashboard
+[x] My Collection
+[x] Header
+[x] AlbumModal
+[x] Carousel
