@@ -7,7 +7,11 @@ import {
   PostSaleAlbumResponse,
 } from "@/types/AlbumApi"
 import { UserSession } from "@/types/User"
-import { AuthResponse, CreateResponse } from "@/types/UserApi"
+import {
+  AuthResponse,
+  CreateResponse,
+  GetWalletResponse,
+} from "@/types/UserApi"
 import { createContext, useEffect, useState } from "react"
 import { Navigate } from "react-router-dom"
 
@@ -21,6 +25,8 @@ interface AuthContext {
     name: string
   ) => Promise<string | void>
   logout: () => void
+  getWallet: () => Promise<string | GetWalletResponse>
+  postWalletCredit: (value: number) => Promise<string | void>
   getAlbumsByText: (param: string) => Promise<string | AlbumModel[]>
   getMyCollection: () => Promise<string | GetMyCollectionResponse>
   postSaleAlbum: (body: PostSaleAlbumRequest) => Promise<string | void>
@@ -84,6 +90,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return <Navigate to="/" />
   }
 
+  async function postWalletCredit(value: number) {
+    const response = await userApi.post(`/wallet/credit/${value}`, {
+      headers: { Authorization: `Basic ${userSession?.token}` },
+    })
+
+    if (response instanceof Error) return response.message
+  }
+
+  async function getWallet() {
+    const response = await userApi.post<GetWalletResponse>(`/wallet`, {
+      headers: { Authorization: `Basic ${userSession?.token}` },
+    })
+
+    if (response instanceof Error) return response.message
+
+    return response.data
+  }
+
   // Albums API functions
 
   async function getAlbumsByText(param: string) {
@@ -132,6 +156,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     login,
     signup,
     logout,
+    getWallet,
+    postWalletCredit,
     getAlbumsByText,
     getMyCollection,
     postSaleAlbum,
