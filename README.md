@@ -3,6 +3,16 @@ O melhor e-commerce de discos da América Latina. Traga as suas músicas favorit
 
 Projeto desenvolvido por Guilherme Garcia durante o bootcamp da SysMap Solutions em Maio de 2024. </br>
 
+![image](https://github.com/bc-fullstack-04/guilherme-garcia-frontend/assets/121461039/1b8bd067-2255-4a5d-bcb6-171d4ca448f4)
+
+![image](https://github.com/bc-fullstack-04/guilherme-garcia-frontend/assets/121461039/b8593090-6a52-464a-9579-7c30ff4a578c)
+
+![image](https://github.com/bc-fullstack-04/guilherme-garcia-frontend/assets/121461039/4c2bd798-62dc-471c-ad96-841b52ccd5d2)
+
+![image](https://github.com/bc-fullstack-04/guilherme-garcia-frontend/assets/121461039/7d8fcf85-f246-4f1a-9920-d9fe8080b100)
+
+![image](https://github.com/bc-fullstack-04/guilherme-garcia-frontend/assets/121461039/5c3315ba-777a-48ac-80fc-c4dfc121279c)
+
 TODO: </br>
 
 [] Add form validation to login page </br>
