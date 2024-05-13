@@ -1,34 +1,38 @@
+# BootPlay
+O melhor e-commerce de discos da América Latina. Traga as suas músicas favoritas para a palma das suas mãos. </br>
+
+Projeto desenvolvido durante o bootcamp da SysMap Solutions em Maio de 2024.
 TODO:
 
-[] Add form validation to login page
-[] Add form validation to signup page
-[x] Add ReactRouter to this project
-[x] Create header component
-[x] Create bootplay dashboard page
-[x] Use docker-compose.yml of Andryev
-[x] Create AuthContext
-[x] Create login/register flow
-[x] Create logout function
-[x] Protect dashboard page from unauthorized users
-[x] Render trend albums
-[x] Render my collection
-[x] Create carousel component to render trends
-[x] Fix carousel slider after and before in lower screen
-[x] Create buy album logic
-[x] Create delete albums from my collection logic
-[x] Add icons in header dropdown buttons
-[x] Style global scrollbar
-[] Add line clamp for elements
-[] Add balance
-[] See current user balance
+[] Add form validation to login page </br>
+[] Add form validation to signup page </br>
+[x] Add ReactRouter to this project </br>
+[x] Create header component </br>
+[x] Create bootplay dashboard page </br>
+[x] Use docker-compose.yml of Andryev </br>
+[x] Create AuthContext </br>
+[x] Create login/register flow </br>
+[x] Create logout function </br>
+[x] Protect dashboard page from unauthorized users </br>
+[x] Render trend albums </br>
+[x] Render my collection </br>
+[x] Create carousel component to render trends </br>
+[x] Fix carousel slider after and before in lower screen </br>
+[x] Create buy album logic </br>
+[x] Create delete albums from my collection logic </br>
+[x] Add icons in header dropdown buttons </br>
+[x] Style global scrollbar </br>
+[] Add line clamp for elements </br>
+[] Add balance </br>
+[] See current user balance </br>
 
 - Responsiveness:
 
-[x] Landing
-[x] Login
-[x] Signup
-[x] Dashboard
-[x] My Collection
-[x] Header
-[x] AlbumModal
-[x] Carousel
+[x] Landing </br>
+[x] Login </br>
+[x] Signup </br>
+[x] Dashboard </br>
+[x] My Collection </br>
+[x] Header </br>
+[x] AlbumModal </br>
+[x] Carousel </br>
