@@ -1,8 +1,9 @@
 # BootPlay
 O melhor e-commerce de discos da América Latina. Traga as suas músicas favoritas para a palma das suas mãos. </br>
 
-Projeto desenvolvido durante o bootcamp da SysMap Solutions em Maio de 2024.
-TODO:
+Projeto desenvolvido por Guilherme Garcia durante o bootcamp da SysMap Solutions em Maio de 2024. </br>.
+
+TODO: </br>
 
 [] Add form validation to login page </br>
 [] Add form validation to signup page </br>
